@@ -1,0 +1,27 @@
+.profile-link{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 0.920;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    opacity: 1;
+    transition: opacity .3s;
+    display: inline-flex;
+}
+.profile-link:hover{
+    opacity: .7;
+}
+@media screen and (max-width:1024px){
+    .profile-link{
+        display: none;
+    }
+}
+.profile-link__icon{
+    padding: 7.5px;
+    background: #313131;
+    border-radius: 50px;
+    margin-left: 7px;
+}
