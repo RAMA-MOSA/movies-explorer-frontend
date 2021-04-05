@@ -87,7 +87,7 @@ function Movies() {
   }, []);
 
   return (
-    <main>
+    <main className="movies">
       <SearchForm />
       {isLoadingData ? (
         <Preloader />

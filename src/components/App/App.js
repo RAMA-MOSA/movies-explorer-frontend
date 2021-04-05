@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useRouteMatch, useHistory } from 'react-router-dom';
+import { Route, Switch, useRouteMatch, useHistory, useLocation } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
@@ -16,6 +16,7 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
   const history = useHistory();
+  const location = useLocation();
 
   const handleSignup = () => {
     setLoggedIn(true);
@@ -62,6 +63,7 @@ function App() {
           onSignup={handleSignup}
           onSignin={handleSignin}
           onOpenMenu={setOpenMenu}
+          locationPathname={location.pathname}
         />
       )}
       <Switch>

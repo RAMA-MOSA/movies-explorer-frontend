@@ -2,7 +2,7 @@
     padding: 84px 70px 30px;
     background-color: #202020;
     max-width: 1280px;
-    margin: 0;
+    margin: 0 auto;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

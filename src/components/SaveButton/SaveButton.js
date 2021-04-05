@@ -12,13 +12,14 @@ function SaveButton({ className, onClick, locationPathname, isMarked }) {
       onClick={onClick}
     >
       {locationPathname === '/saved-movies' ? (
-        <RemoveSaveButtonIcon className='movies-card__save-icon_delete'/>
+        <RemoveSaveButtonIcon className='movies-card__save-icon_delete' />
       )
-        : locationPathname === '/movies' && isMarked ? (
-        <AddSaveButtonIconMarked className='movies-card__save_on'/>
-        ) : (
-        <AddSaveButtonIcon className='movies-card__save-icon'/>
-        )}
+      :
+      isMarked ? (
+        <AddSaveButtonIconMarked className='movies-card__save_on' />
+      ) : (
+        <AddSaveButtonIcon className='movies-card__save-icon' />
+      )}
     </button>
   );
 }

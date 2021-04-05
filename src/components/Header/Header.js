@@ -5,8 +5,11 @@ import Navigation from '../Navigation/Navigation';
 import HeaderBurger from '../HeaderBurger/HeaderBurger';
 
 function Header(props) {
+
+  const headerClass = props.locationPathname === '/' ? 'header_light' : 'header';
+  
   return (
-    <header className="header">
+    <header className={headerClass}>
         {props.loggedIn ? (
           <Navigation />
         )
