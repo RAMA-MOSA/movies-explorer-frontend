@@ -1,16 +1,19 @@
 .footer{
-    padding: 79px 70px 20px;
     background-color: #202020;
+    
+}
+.footer__container{
     max-width: 1280px;
     margin: 0 auto;
+    padding: 79px 70px 20px;
 }
 @media screen and (max-width:1024px) and (min-width:768px){
-    .footer{
+    .footer__container{
         padding: 79px 30px 20px;
     }
 }
 @media screen and (max-width:768px){
-    .footer{
+    .footer__container{
         padding: 79px 10px 10px;
     }
 }

@@ -16,11 +16,12 @@ function MoviesCardList({ locationPathname, data }) {
   ))
 
   return (
-    <ul
-      className='movies-card-list'
-    >
-      {moviesCardsMarkup}
-    </ul>
+
+    <div className='movies-card-list'>
+      <ul className='movies-card-list__container'>
+        {moviesCardsMarkup}
+      </ul>
+    </div>
   );
 }
 

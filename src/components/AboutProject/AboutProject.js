@@ -3,6 +3,7 @@ import React from 'react';
 function AboutProject() {
   return (
       <section className="about-project">
+          <div className='about-project__container'>
           <h2 className="title">О проекте</h2>
           <div className="about-project__grid">
               <div className="about-project__text-container">
@@ -19,6 +20,7 @@ function AboutProject() {
               <p className="about-project__line">4 недели</p>
               <p className="about-project__shema-text">Back-end</p>
               <p className="about-project__shema-text">Front-end</p>
+          </div>
           </div>
       </section>
   );

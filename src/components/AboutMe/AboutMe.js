@@ -4,6 +4,7 @@ import StudentPhoto from '../../images/student-photo.jpg';
 function AboutMe() {
   return (
     <section className="about-me">
+        <div className='about-me__container'>
         <h2 className="title">Студент</h2>
         <div className="about-me__section">
             <div className="about-me__text-box">
@@ -35,6 +36,7 @@ function AboutMe() {
                 </a>
             </li>
         </ul>
+        </div>
     </section>
   );
 }
