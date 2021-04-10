@@ -1,0 +1,186 @@
+.profile{
+    background-color: #202020;
+    max-width: 1280px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.profile-form{
+    max-width: 410px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 74px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+    .profile-form{
+        margin-top: 236px;
+    }
+}
+@media screen and (max-width:768px){
+    .profile-form{
+        max-width: 260px;
+        margin-top: 70px;
+    }
+}
+.profile-form__title{
+    margin-bottom: 123px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+    .profile-form__title{
+        margin-bottom: 96px;
+    }
+}
+@media screen and (max-width:768px){
+    .profile-form__title{
+        margin-bottom: 80px;
+    }
+}
+.profile-form__text{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+}
+.profile-form__input-fieldset{
+    padding: 0;
+    margin: 0;
+    border: unset;
+}
+.profile-form__input-box{
+    margin-bottom: 17px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #424242;
+}
+.profile-form__input-box:last-of-type{
+    margin-bottom: 0;
+    border-bottom: unset;
+}
+.profile-form__input-label{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 1.2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+.profile-form__input{
+    width: 410px;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.2;
+    color: white;
+    border: unset;
+    background: unset;
+    text-align: right;
+}
+@media screen and (max-width:768px){
+    .profile-form__input{
+        width: 200px;
+    }
+}
+.profile-form__input:invalid{
+    color: #ee3465;
+}
+.profile-form__input-error{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #ee3465;
+    margin-top: 10px;
+    text-align: center;
+}
+.profile-form__button-box{
+    margin-top: 220px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media screen and (max-width:768px){
+    .profile-form__button-box{
+        margin-bottom: 40px;
+        margin-top: 379px;
+    }
+}
+.profile-form__update-error{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #ee3465;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.profile-form__button-save{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+    padding: 13px 0 16px;
+    width: 100%;
+    background-color: #4285f4;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3s;
+}
+.profile-form__button-save:hover{
+    opacity: .8;
+}
+.profile-form__button-save:disabled{
+    cursor: not-allowed;
+}
+.profile-form__button-edit{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.2;
+    color: white;
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3s;
+}
+.profile-form__button-edit:hover{
+    opacity: .8;
+}
+.profile-form__button-exit{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.2;
+    color: #ee3465;
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3s;
+    margin-top: 16px;
+}
+.profile-form__button-exit:hover{
+    opacity: .8;
+}

@@ -1,0 +1,99 @@
+.footer{
+    background-color: #202020;
+    
+}
+.footer__container{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 79px 70px 20px;
+}
+@media screen and (max-width:1024px) and (min-width:768px){
+    .footer__container{
+        padding: 79px 30px 20px;
+    }
+}
+@media screen and (max-width:768px){
+    .footer__container{
+        padding: 79px 10px 10px;
+    }
+}
+.footer__title{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.33;
+    color: #8b8b8b;
+    text-align: center;
+    padding: 0 0 20px;
+    border-bottom: solid 1px #424242;
+    margin: 0;
+}
+@media screen and (max-width:768px){
+    .footer__title{
+        font-size: 12px;
+        padding-bottom: 21px;
+    }
+}
+.footer__box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+@media screen and (max-width:768px){
+    .footer__box{
+        margin-top: 30px;
+        flex-direction: column-reverse;
+    }
+}
+.footer__text{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.33;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:768px){
+    .footer__text{
+        font-size: 12px;
+        align-self: center;
+        color: #8b8b8b;
+    }
+}
+.footer__list{
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+@media screen and (max-width:768px){
+    .footer__list{
+        margin-bottom: 18px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.footer__item{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 1.33;
+    color: white;
+    text-decoration: none;
+    margin: 0 0 0 20px;
+    opacity: 1;
+    transition: opacity .3s;
+}
+.footer__item:hover{
+    opacity: .7;
+}
+@media screen and (max-width:768px){
+    .footer__item{
+        font-size: 12px;
+        margin: 0 auto 12px;
+    }
+}

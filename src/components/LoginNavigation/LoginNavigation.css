@@ -1,0 +1,38 @@
+.login-navigation-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.login-navigation__list{
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    margin: 0;
+    padding: 0;
+}
+.login-navigation__link{
+    text-decoration: none;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: white;
+    margin-left: 10px;
+    opacity: 1;
+    transition: opacity .3s;
+    border-radius: 3px;
+    padding: 8px 20px;
+}
+@media screen and (max-width:768px){
+    .login-navigation__link{
+        font-size: 10px;
+        padding: 5px 12px;
+        margin-left: 2px;
+    }
+}
+.green{
+    color: black;
+    background-color: #3ddc84;
+}
