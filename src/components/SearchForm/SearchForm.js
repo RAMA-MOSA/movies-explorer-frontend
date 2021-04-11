@@ -3,8 +3,7 @@ import React from 'react';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm() {
-
+function SearchForm({ onSubmit }) {
   const {
     values,
     isValid,
@@ -14,7 +13,7 @@ function SearchForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.table(values);
+    onSubmit(values);
     resetForm();
   };
 
@@ -30,7 +29,7 @@ function SearchForm() {
     <form className="search-form" onSubmit={handleSubmit}>
         <div className="search-form__box">
             <input className="search-form__input" type="text" id="search-text" placeholder="Фильм" name="search" required={true} onChange={handleChange} value={values.search} minLength='1'></input>
-            <button className="search-form__button" type="submit" disabled={!isValid}>Поиск</button>
+            <button className="search-form__button" type="submit" disabled={!isValid}>Поиск</button>  //вопросики относительно дизабледа
         </div>
         <FilterCheckbox
           inputclassName='search-form__checkbox-input'
@@ -43,6 +42,6 @@ function SearchForm() {
         <div className='line'></div>
     </form>
   );
-}
+};
 
 export default SearchForm;

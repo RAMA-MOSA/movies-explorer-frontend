@@ -1,31 +1,40 @@
 import React from 'react';
 
 import useFormWithValidation from '../../hooks/useFormValidation';
+import Preloader from '../Preloader/Preloader';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-function Profile({ currentUserData, onSignOut }) {
+function Profile({ onSignOut, onUpdateCurrentUser, isLoadingUpdateCurrentUser, updUserResStatus }) {
+  const currentUserData = React.useContext(CurrentUserContext);
+
+  const [isUpdateUserProfileError, setIsUpdateUserProfileError] = React.useState(false);
+  const [updateUserProfileErrorText, setUpdateUserProfileErrorText] = React.useState('');
+  const [formIsValid, setFormIsValid] = React.useState(false);
 
   const {
     values,
     errors,
     isValid,
     handleChange,
-    resetForm,
-  } = useFormWithValidation({ currentUserData });
+    resetForm
+  } = useFormWithValidation({});
 
-  const WelcomeText = `Привет, ${currentUserData.name || ''}!`;
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    onUpdateCurrentUser(values)
+    handleToggleEditableProfile();
+    resetForm(currentUserData);
+  };
 
   const [isEdited, setIsEdited] = React.useState(false);
 
   const handleToggleEditableProfile = () => {
     setIsEdited(!isEdited);
+    setIsUpdateUserProfileError(false);
+    setUpdateUserProfileErrorText('');
   };
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    console.table(values);
-    handleToggleEditableProfile();
-    resetForm(values);
-  };
+  
+  const WelcomeText = `Привет, ${currentUserData.name || ''}!`;
 
   React.useEffect(() => {
     if (currentUserData) {
@@ -33,13 +42,51 @@ function Profile({ currentUserData, onSignOut }) {
     }
   }, [currentUserData, resetForm]);
 
+  React.useEffect(() => {
+    setFormIsValid(isValid);
+  }, [isValid, values]);
+
+  React.useEffect(() => {
+    if (currentUserData.name === values.name && currentUserData.email === values.email) {
+      setFormIsValid(false);
+    }
+  }, [currentUserData, values]);
+
+  const errorHandler = () => {
+    if (updUserResStatus) {
+      switch (updUserResStatus) {
+        case 400:
+        case 404:
+          setIsUpdateUserProfileError(true);
+          setUpdateUserProfileErrorText('При обновлении профиля произошла ошибка');
+          break;
+        case 500:
+          setIsUpdateUserProfileError(true);
+          setUpdateUserProfileErrorText('Внутренняя ошибка сервера')
+          break;
+        case 200:
+          setIsUpdateUserProfileError(false);
+          setUpdateUserProfileErrorText('');
+          break;
+        default:
+          setIsUpdateUserProfileError(true);
+          setUpdateUserProfileErrorText('При обновлении профиля произошла ошибка');
+          break;
+      };
+    };
+  };
+
+  React.useEffect(() => {
+    errorHandler();
+  });
+
   return (
     <main className='profile'>
         <form className='profile-form' onSubmit={handleSubmit} noValidate>
             <div className='profile-form__title'>
                 <h1 className='profile-form__text'>{WelcomeText}</h1>
             </div>
-            <fieldset className='profile-form__input-fieldset' disabled={!isEdited}>
+            <fieldset className='profile-form__input-fieldset' disabled={!isEdited || isLoadingUpdateCurrentUser}>
                 <div className='profile-form__input-box'>
                     <label className='profile-form__input-label'>
                         Имя
@@ -52,6 +99,8 @@ function Profile({ currentUserData, onSignOut }) {
                             required={true}
                             onChange={handleChange}
                             value={values.name || ''}
+                            pattern='[a-zA-Z -]{2,30}'
+                            customErrorMessage = 'Поле name может содержать только латиницу, пробел или дефис: a-zA-Z -'
                         />
                     </label>
                     <span className='profile-form__input-error' aria-live='polite'>
@@ -78,24 +127,28 @@ function Profile({ currentUserData, onSignOut }) {
                 </div>
             </fieldset>
             <div className='profile-form__button-box'>
+
+              {isUpdateUserProfileError && (
+                <span
+                className='profile-form__update-error'
+                aria-live="polite"
+              >
+                {updateUserProfileErrorText}
+              </span>
+              )}
               {isEdited ? (
-                <>
-                  <span
-                    className='profile-form__update-error'
-                    aria-live="polite"
-                  >
-                    При обновлении профиля произошла ошибка.
-                  </span>
-                  <button
-                    className='profile-form__button-save'
-                    disabled={!isValid}
-                    type='submit'
-                  >
-                    Сохранить
-                  </button>
-                </>
+                <button
+                className='profile-form__button-save'
+                disabled={!formIsValid}
+                type='submit'
+              >
+                Сохранить
+              </button>
               ) : (
                 <>
+                  {isLoadingUpdateCurrentUser && (
+                    <Preloader />
+                  )}
                   <button
                     className='profile-form__button-edit'
                     onClick={handleToggleEditableProfile}
@@ -114,6 +167,6 @@ function Profile({ currentUserData, onSignOut }) {
         </form>
     </main>
   );
-}
+};
 
 export default Profile;
