@@ -29,3 +29,4 @@ class MoviesApi {
   });
   
   export default moviesApi;
+  

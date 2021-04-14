@@ -1,9 +1,13 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts/inter.css);
 @import url(./components/App/App.css);
+@import url(./components/NotFound/NotFound.css);
+@import url(./components/Modal/Modal.css);
 @import url(./components/Header/Header.css);
 @import url(./components/HeaderBurger/HeaderBurger.css);
 @import url(./components/Logo/Logo.css);
+@import url(./components/NotificationModal/NotificationModal.css);
+@import url(./components/Notification/Notification.css);
 @import url(./components/LoginNavigation/LoginNavigation.css);
 @import url(./components/Navigation/Navigation.css);
 @import url(./components/ProfileLink/ProfileLink.css);
@@ -25,5 +29,3 @@
 @import url(./components/Register/Register.css);
 @import url(./components/Profile/Profile.css);
 @import url(./components/Footer/Footer.css);
-@import url(./components/NotFound/NotFound.css);
-@import url(./components/Modal/Modal.css);

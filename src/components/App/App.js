@@ -17,6 +17,7 @@ import Footer from '../Footer/Footer';
 import NotFound from '../NotFound/NotFound';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
+import NotificationModal from '../NotificationModal/NotificationModal';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
   const [isLoadingData, setIsLoadingData] = React.useState(true);
+  const [notificationModalIsOpen, setNotificationModalIsOpen] = React.useState(false);
+  const [notificationText, setNotificationText] = React.useState('');
   const [currentUserData, setCurrentUserData] = React.useState({});
   const [moviesData, setMoviesData] = React.useState([]);
   const [foundSavedMoviesData, setFoundSavedMoviesData] = React.useState([]);
@@ -69,6 +72,8 @@ function App() {
         localStorage.setItem('jwt', res.data.token);
         setLoggedIn(true);
         history.push('/movies');
+        setOpenNotificationModal();
+        setNotificationText('Аутентификация прошла успешно');
       })
       .then(() => {
         checkToken();
@@ -115,6 +120,8 @@ function App() {
           setCurrentUserData(res.data);
           setUpdateCurrentUserResStatus(res.status);
           localStorage.setItem('currentUserData', JSON.stringify(res.data));
+          setOpenNotificationModal();
+          setNotificationText('Обновление профиля прошло успешно');
         })
         .catch((err) => {
           setUpdateCurrentUserResStatus(err);
@@ -229,6 +236,8 @@ function App() {
         .then((res) => {
         })
         .catch((err) => {
+          setOpenNotificationModal();
+          setNotificationText(`При добавлении фильма в избранное возникла ошибка: ${err}`)
           console.log(err);
         })
         .finally(() => {
@@ -258,6 +267,8 @@ function App() {
           markAsUnsaved(id);
         })
         .catch((err) => {
+          setOpenNotificationModal();
+          setNotificationText(`При удалении фильма из избранного возникла ошибка: ${err}`)
           console.log(err);
         })
         .finally(() => {
@@ -273,6 +284,15 @@ function App() {
 
   const setCloseMenu = () => {
     setMenuIsOpen(false);
+  };
+
+  const setOpenNotificationModal = () => {
+    setNotificationModalIsOpen(true);
+  };
+
+  const setCloseNotificationModal = () => {
+    setNotificationText('');
+    setNotificationModalIsOpen(false);
   };
 
   const exclusionRoutesPathsAuthArray = [
@@ -374,6 +394,12 @@ function App() {
         {menuIsOpen && (
           <Modal
             onModalClose={setCloseMenu}
+          />
+        )}
+        {notificationModalIsOpen && (
+          <NotificationModal
+            onClose={setCloseNotificationModal}
+            notificationText={notificationText}
           />
         )}
       </div>

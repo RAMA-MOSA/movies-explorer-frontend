@@ -16,7 +16,7 @@ function MoviesCardList({ locationPathname, data, onSaveMovie, onDeleteSavedMovi
     if (size.width >= 1024) {
       setNumberMoviesToRender(12);
       setNumberMoviesToAdd(3);
-    } else if (size.width < 1024 && size.width >= 768) {
+    } else if (size.width < 1250 && size.width >= 768) {
       setNumberMoviesToRender(8);
       setNumberMoviesToAdd(2);
     } else if (size.width < 768 && size.width >= 320) {

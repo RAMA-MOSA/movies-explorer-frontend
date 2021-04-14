@@ -86,14 +86,14 @@ class MainApi {
     };
   };
   
-  const OPTIONS = {
-    baseUrl: 'https://m-e.students.nomoredomains.monster',
+  const options = {
+    baseUrl: 'https://api.m-e.students.nomoredomains.monster',
     headers: {
       'Content-Type': 'application/json',
     },
   };
   
-  const mainApi = new MainApi(OPTIONS);
+  const mainApi = new MainApi(options);
   
   export default mainApi;
   
