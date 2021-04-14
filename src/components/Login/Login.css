@@ -102,6 +102,16 @@
     color: #ee3465;
     margin-top: 10px;
 }
+.login-form__error{
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #ee3465;
+    display: block;
+    text-align: center;
+}
 .login-form__button{
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-style: normal;

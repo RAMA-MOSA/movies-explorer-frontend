@@ -3,8 +3,7 @@ import React from 'react';
 import useFormWithValidation from '../../hooks/useFormValidation';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-function SearchForm() {
-
+function SearchForm({ onSubmit }) {
   const {
     values,
     isValid,
@@ -14,7 +13,7 @@ function SearchForm() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.table(values);
+    onSubmit(values);
     resetForm();
   };
 
@@ -43,6 +42,6 @@ function SearchForm() {
         <div className='line'></div>
     </form>
   );
-}
+};
 
 export default SearchForm;

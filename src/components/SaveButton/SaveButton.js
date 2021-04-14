@@ -4,7 +4,7 @@ import { ReactComponent as AddSaveButtonIcon } from '../../images/AddSaveButtonI
 import { ReactComponent as AddSaveButtonIconMarked } from '../../images/AddSaveButtonIconMarked.svg';
 import { ReactComponent as RemoveSaveButtonIcon } from '../../images/RemoveSaveButtonIcon.svg';
 
-function SaveButton({ className, onClick, locationPathname, isMarked }) {
+function SaveButton({ className, onClick, locationPathname, isSaved }) {
 
   return (
     <button
@@ -15,13 +15,13 @@ function SaveButton({ className, onClick, locationPathname, isMarked }) {
         <RemoveSaveButtonIcon className='movies-card__save-icon_delete' />
       )
       :
-      isMarked ? (
+      isSaved ? (
         <AddSaveButtonIconMarked className='movies-card__save_on' />
       ) : (
         <AddSaveButtonIcon className='movies-card__save-icon' />
       )}
     </button>
   );
-}
+};
 
 export default SaveButton;
